@@ -1,0 +1,369 @@
+/* custom-theme.css */
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #23273c;
+    --muted: #f1f5f9;
+    --muted-foreground: #60647c;
+    --popover: #ffffff;
+    --popover-foreground: #1f2937;
+    --border: #e3e3e7;
+    --input: #e2e8f0;
+    --card: #ffffff;
+    --card-foreground: #1f2937;
+    --primary: #118fa8;
+    --primary-foreground: #ffffff;
+    --secondary: #d2e1e2;
+    --secondary-foreground: #006a7f;
+    --accent: #b6d3d6;
+    --accent-foreground: #004a54;
+    --destructive: #ff0000;
+    --destructive-foreground: #f8fafc;
+    --ring: #94a3b8;
+    --radius: 10px;
+
+    --accent-checkbox: #11a843;
+    --accent-light: #74db97;
+    --hover-bg: #e4eff0;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* PrimeReact base theme */
+.p-component {
+  --primary-color: var(--primary);
+  --primary-color-text: #ffffff;
+  font-family: inherit;
+}
+
+/* PrimeReact component overrides */
+.p-button {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.p-button:enabled:hover {
+  background-color: #0e7a8f;
+  /* 90% of primary color */
+  border-color: #0e7a8f;
+}
+
+.p-inputtext:enabled {
+  border-radius: var(--radius);
+  border-color: #e3e3e7;
+  box-shadow: 0px 1px 2px 0px rgba(21, 28, 36, 0.05);
+}
+
+.p-icon-field {
+  width: 100%;
+}
+
+.p-password-input {
+  width: 100%;
+}
+
+/* Add more component-specific overrides as needed */
+
+@layer components {
+  label {
+    font-weight: 500;
+    color: #23273c;
+    font-size: 14px;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+.p-inputtext-lg.p-inputotp-input {
+  width: 3rem !important;
+  height: 3rem !important;
+  font-size: 1.5rem !important;
+}
+
+/* Global scrollbar styles */
+* {
+  scrollbar-width: thin;  /* Firefox */
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;  /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  width: 1px;  /* Ultra thin */
+  height: 1px;  /* Ultra thin */
+  display: block;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.p-checkbox.p-highlight .p-checkbox-box {
+  background-color: var(--accent-checkbox);
+  border-color: var(--accent-light);
+}
+
+.p-checkbox:hover {
+  border-color: var(--accent-light);
+}
+
+.p-inputnumber-input {
+  width: 100% !important;
+  /* Override any conflicting styles */
+  box-sizing: border-box;
+  /* Ensure padding/margin do not affect width */
+}
+
+.p-inputswitch.p-highlight .p-inputswitch-slider {
+  background-color: var(--accent-checkbox);
+  border-color: var(--accent-light);
+}
+
+.p-dialog .p-dialog-content {
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.p-dialog-header-icons {
+  visibility: hidden;
+}
+.p-dialog .p-dialog-head {
+  padding: 1rem;
+}
+.p-dialog .p-dialog-header {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 14px 22px;
+}
+.p-dialog .p-dialog-content:last-of-type {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.p-dialog {
+  border-radius: 8px;
+}
+.p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 600;
+}
+
+.p-tooltip-text {
+  font-size: 14px;
+  font-weight: semibold;
+  padding: 4px;
+  background-color: #004a54;
+}
+
+.p-tooltip .p-tooltip-arrow::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent #004a54 transparent;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100% !important; /* Override any conflicting styles */
+  box-sizing: border-box; /* Ensure padding/margin do not affect width */
+}
+
+.p-input-icon {
+  transform: translateY(-4px);
+}
+.p-multiselect-label {
+  display: flex;
+  gap: 10px;
+}
+.p-multiselect-checkbox {
+  display: none;
+}
+.p-multiselect-item span {
+  width: 100%;
+}
+.p-multiselect-select-all {
+  display: none;
+}
+.p-multiselect-close {
+  display: none;
+}
+/* .p-multiselect-header {
+  display: none;
+} */
+.hide-multiselect-header .p-multiselect-header {
+  display: none;
+}
+a {
+  font-weight: 400;
+}
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-highlight {
+  color: #53afc2;
+}
+
+.p-multiselect {
+  border-radius: 10px !important;
+}
+.p-multiselect .p-multiselect-label {
+  padding: 0.65rem 0.75rem;
+}
+
+/* .p-dropdown-item-label {
+  width: 100%;
+} */
+
+.no-border .p-inputtext {
+  border: none !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+  border-radius: 0px !important;
+  margin: 0;
+  padding: 6px;
+}
+.p-inputtext {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.p-inputgroup-addon {
+  padding: 6px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+/* .no-border .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+} */
+
+.no-border .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  box-shadow: none !important;
+}
+
+.no-border .p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  box-shadow: none !important;
+}
+.p-multiselect {
+  box-shadow: none !important;
+}
+
+/* Add border to the entire calendar panel */
+.p-datepicker {
+  width: 20rem !important;
+  min-width: 20rem !important;
+  border: 1px solid var(--secondary-foreground); /* Standard border */
+  border-radius: 10px;
+  border-width: 1.5px;
+}
+
+/* Adjust internal spacing for medium size */
+.p-datepicker table {
+  font-size: 14px;
+}
+
+/* Add border to individual date cells */
+.p-datepicker table td {
+  padding: 0.25rem;
+}
+
+.p-datepicker table td > span {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Add border to calendar header */
+.p-datepicker .p-datepicker-header {
+  padding: 0.5rem;
+}
+
+/* Ensure consistent sizing for different viewports */
+@media screen and (max-width: 768px) {
+  .p-datepicker {
+    width: 20rem !important;
+    min-width: 20rem !important;
+    border-radius: 10px;
+  }
+}
+/* new CSS using parent class */
+
+.p-dropdown {
+  box-shadow: none !important;
+}
+
+.p-dropdown .p-dropdown-label.p-placeholder {
+  color: #898da2;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.p-dropdown-item-label {
+  color: #898da2;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.p-dropdown-items-wrapper {
+  border: 1px solid #53afc2;
+  border-radius: 10px;
+}
+
+.p-dropdown-panel {
+  margin-top: 10px !important;
+}
+
+.custom-text-field .p-inputtext {
+  box-shadow: none !important;
+  font-size: 14px;
+  color: #23273c;
+}
+
+.p-dropdown-item-label {
+  width: 100%;
+}
+
+.p-multiselect:hover,
+.p-multiselect:focus {
+  border-color: var(--primary);
+}
+
+.p-dropdown:hover,
+.p-dropdown:focus {
+  border-color: var(--primary);
+}
+
+.p-inputtext:hover,
+.p-inputtext:focus {
+  border-color: var(--primary);
+}
+
+.p-overlaypanel-content{
+  padding: 0 !important;
+}
+
+.p-tieredmenu.p-component.p-tieredmenu-overlay.p-ripple-disabled.p-connected-overlay-enter-done,
+.p-tieredmenu .p-submenu-list {
+  border: 1.5px solid var(--secondary-foreground);
+  border-radius: 10px;
+}
