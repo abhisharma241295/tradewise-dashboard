@@ -1,0 +1,33 @@
+export interface PolicyType {
+    _id: string,
+    classification_description: string,
+    country_linked: string[],
+    data_source_url: string,
+    detailed_summary_updates: string,
+    hts_code_linked: string[],
+    one_liner_updates: string,
+    priority_level: string,
+    priority_level_description: string,
+    scraped_at: string,
+    publication_date: string,
+    source: string,
+    title: string,
+    updates_category: string,
+}
+
+export interface ComplianceType {
+    _id: string,
+    classification_description: string,
+    country_linked: string,
+    data_source_url: string,
+    detailed_summary_updates: string,
+    hts_code_linked: string[],
+    one_liner_updates: string,
+    priority_level: string,
+    priority_level_description: string,
+    scraped_at: string,
+    publication_date: string,
+    source: string,
+    title: string,
+    updates_category: string,
+}

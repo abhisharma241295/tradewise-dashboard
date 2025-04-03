@@ -37,6 +37,7 @@ export const getAuthToken = () => {
 
 //NEW CODE
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const setCookie = (name: string, value: any, days: number) => {
   if (days > 0) {
     Cookies.set(name, JSON.stringify(value || ""), {
@@ -72,7 +73,7 @@ export function parseCookies(ctx?: NextPageContext): { userToken?: string } {
 
       // Extract the session cookie
       const sessionMatch = cookieHeader.match(
-        /AKITU_DASHBOARD_USER_TOKEN=([^;]*)/
+        /TRADEWISE_USER_TOKEN=([^;]*)/
       )
       if (!sessionMatch) {
         return { userToken: undefined }
